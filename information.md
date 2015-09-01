@@ -1,9 +1,5 @@
 # Cisco Switch - Basic Infos
 
-## heute
-- wie mache ich eigentlich ne Tabelle?
-- Waurm mach ich diese Tableel
-- und was kann cih ncoh machen?
 
 #### Grundkonfiguration
  Schritt | Funktion |Programmname 
