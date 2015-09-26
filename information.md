@@ -19,3 +19,12 @@ Schritt | Funktion |Programmname
 1 | ip adresse vergeben | interface vlan1 
 
 ## Infos zu VTP
+- VTP nicht benutzen !
+
+
+#### Sonstiges
+
+Funktion |Programmname 
+--- | ---
+welche Ports sind in welchen VLAN | show vlan-switch 
+Port in ein anderes VLAN Packen | en -> conf t -> int faXX -> switchport mode access -> switchport access vlan 20
