@@ -13,7 +13,6 @@
 7|verify clock| en -> show clock
 
 #### Vlan 1 Konfigurieren
-
 Schritt | Funktion |Programmname 
  --- | --- | ---
 1 | ip adresse vergeben | interface vlan1 
@@ -21,6 +20,11 @@ Schritt | Funktion |Programmname
 ## Infos zu VTP
 - VTP nicht benutzen !
 
+#### Vlan 1 Konfigurieren
+Schritt | Funktion |Programmname 
+ --- | --- | ---
+1 | ip adresse vergeben | interface vlan1 
+ | Pool anzeigen wer welche ip hat | show ip dhcp binding
 
 #### Sonstiges
 
