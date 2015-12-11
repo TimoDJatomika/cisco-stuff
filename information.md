@@ -12,10 +12,13 @@
 6|Uhrzeit setzen|en -> conf t -> clock set 19:43:43 5 Apr 2015
 7|verify clock| en -> show clock
 
+#### VLAN auf Layer 2
+`en -> vlan database`
+
 #### Vlan 1 Konfigurieren
 Schritt | Funktion |Programmname 
  --- | --- | ---
-1 | ip adresse vergeben | interface vlan1 
+1 | ip adresse vergeben | `interface vlan1` 
 
 ## Infos zu VTP
 - VTP nicht benutzen !
