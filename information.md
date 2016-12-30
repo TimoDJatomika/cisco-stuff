@@ -1,19 +1,27 @@
 # Cisco Switch - Basic Infos
 
 
-#### Grundkonfiguration
+## Grundkonfiguration
  Schritt | Funktion |Programmname 
  --- | --- | ---
-1|Hostname ändern | enable -> conf t -> hostname *mycool switch*  
+1|Hostname ändern | enable -> conf t -> hostname *mycool-switch*  
 2|kein DNS Lookup | enable -> conf t -> no ip domain lookup
 3|Inline status Meldungen Deaktivieren| conf t -> line cons 0 -> logging synchronous
 4|change position | ändert position
 5|klartext Passwörter ausschalten | en -> conf t -> service password-encryption
-6|Uhrzeit setzen|en -> conf t -> clock set 19:43:43 5 Apr 2015
+6|Uhrzeit setzen|en -> conf t -> clock set 19:43:43 5 Apr 2015 # funktioniert nicht
 7|verify clock| en -> show clock
 
+## Wichtige Kommandos
+Kommando | Funktion
+ --- | ---
+ `en -> vlan database` | Konfiguration von VLAN
+ `en -> show running-config` | Zeigt die akutelle Konfiguration an
+ `en -> conf t -> wr` | speichert die aktuelle Konfiguration ab
+ 
+ 
 #### VLAN auf Layer 2
-`en -> vlan database`
+
 
 ## Infos zu VTP
 - VTP nicht benutzen !
