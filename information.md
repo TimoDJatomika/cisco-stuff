@@ -15,19 +15,14 @@
 #### VLAN auf Layer 2
 `en -> vlan database`
 
-#### Vlan 1 Konfigurieren
-Schritt | Funktion |Programmname 
- --- | --- | ---
-1 | ip adresse vergeben | `interface vlan1` 
-
 ## Infos zu VTP
 - VTP nicht benutzen !
 
 #### Vlan 1 Konfigurieren
-Schritt | Funktion |Programmname 
+Schritt | Kommando | Funktion 
  --- | --- | ---
-1 | ip adresse vergeben | interface vlan1 
- | Pool anzeigen wer welche ip hat | show ip dhcp binding
+1 | en -> conf t -> `interface vlan 1` | Wir möchten das VLAN Interface 1 Konfigurieren (auf L3) 
+2 | `ip address 10.10.10.1 255.255.255.0` | Gibt dem Interface eine IP Adresse
 
 #### Port einem VLAN hinzufügen
 
@@ -46,6 +41,8 @@ Schritt | Funktion |Programmname
 
 ## DHCP
 Mit `en -> show ip  dhcp pool` kann man sich die einzelnen Pools anzeigen lassen
+
+Mit `en -> show ip dhcp binding` wir dagezeigt welcher Cleint zurzeit ein IP Adresse vom Pool hat. 
 
 ### Neuen Pool erstellen
 Schritt | Kommando | Funktion
