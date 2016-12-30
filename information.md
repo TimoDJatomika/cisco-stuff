@@ -44,3 +44,13 @@ Schritt | Funktion |Programmname
 3| Welche VLAN's gehören zum Trunk | en -> conf t -> int faXX -> switchport trunk allowed vlan 20,30,40
 4| noch ein Port zum Trunk hinzufügen | en -> conf t -> int faXX -> switchport trunk allowed vlan add 500
 
+## DHCP
+Mit `en -> show ip  dhcp pool` kann man sich die einzelnen Pools anzeigen lassen
+
+### Neuen Pool erstellen
+Schritt | Kommando | Funktion
+ --- | --- | ---
+ 1 | en -> conft -> `ip dhcp pool <name-von-pool>` | erstellt einen neuen DHCP-Pool 
+ 2 | `network 10.10.10.0 /24` | Netzwerkmaske Konfigurieren (wichtig nach der 0 ein Leerzeichen) 
+ 3 | `default-router 10.10.10.1` | Gibt an was das default Gateway ist
+ 4 | `dns-server 8.8.8.8` | legt den dns server fest
