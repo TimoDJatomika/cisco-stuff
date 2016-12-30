@@ -51,3 +51,13 @@ Schritt | Kommando | Funktion
  2 | `network 10.10.10.0 /24` | Netzwerkmaske Konfigurieren (wichtig nach der 0 ein Leerzeichen) 
  3 | `default-router 10.10.10.1` | Gibt an was das default Gateway ist
  4 | `dns-server 8.8.8.8` | legt den dns server fest
+ 
+ 
+ ## Domain Name
+ Domain Name ist z.B. für ssh wichtig
+ 
+ Kommando | Funktion
+  --- | ---
+  en -> `show hosts` | Zeigt u.a den Domain Name an
+  en -> `show ip domain-name` | Zeigt nur den Domain Name an
+  en -> conf t -> `ip domain-name brainoftimo.com` | vergibt den Domain Name *brainoftimo.com*
