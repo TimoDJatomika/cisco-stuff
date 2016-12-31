@@ -16,9 +16,19 @@
 Kommando | Funktion
  --- | ---
  `en -> vlan database` | Konfiguration von VLAN
- `en -> show running-config` | Zeigt die akutelle Konfiguration an
- `en -> conf t -> wr` | speichert die aktuelle Konfiguration ab
+ `en -> wr` | speichert die aktuelle Konfiguration ab
+ `en -> copy running-config startup-config` | macht das gleiche wie `wr` nur in lang
+ `en -> reload` | startet das Gerät neu 
+ `en -> write erase` | löscht alles im NVRAM
  
+### Wichtige *show* Kommandos
+Vorher muss man sich mit in den `en` mode schalten
+Kommando | Funktion
+ --- | ---
+`show running-config` | Zeigt die akutelle Konfiguration an (Config im RAM)
+`show startup-config` | Zeigt die Konfig an, die im NVRAM ist (wird beim booten ausgeführt)
+`show flash` | Zeigt den Inhalt der *Festplatte* an
+`show version` | Zeigt die Version vom IOS an
  
 #### VLAN auf Layer 2
 
@@ -59,6 +69,7 @@ Schritt | Kommando | Funktion
  2 | `network 10.10.10.0 /24` | Netzwerkmaske Konfigurieren (wichtig nach der 0 ein Leerzeichen) 
  3 | `default-router 10.10.10.1` | Gibt an was das default Gateway ist
  4 | `dns-server 8.8.8.8` | legt den dns server fest
+ 5 | `lease 0 2 0` | wie lange ist die Lease Time für die IP Adresse in [day] [hour] [seconds]
  
  
  ## Domain Name
