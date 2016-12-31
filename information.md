@@ -25,15 +25,17 @@ Kommando | Funktion
  `en -> conf t -> banner motd -> # hier message eingeben #` | Message, die beim starten bzw. anmelden am Gerät angezeigt wird.
  
 ### Wichtige *show* Kommandos
-Vorher muss man sich mit in den `enable` mode schalten
+Vorher muss man sich mit in den `enable` mode schalten.
+
 Kommando | Funktion
  --- | ---
-`show running-config` | Zeigt die akutelle Konfiguration an (Config im RAM)
-`show startup-config` | Zeigt die Konfig an, die im NVRAM ist (wird beim booten ausgeführt)
-`show vlan-switch` | Zeigt welcher Port zu welchem VLAN gehört
-`show flash` | Zeigt den Inhalt der *Festplatte* an
-`show version` | Zeigt die Version vom IOS an
-`show arp` | Zeigt die Zuweisung von MAC Adresse und IP Adresse an
+ `show running-config` | Zeigt die akutelle Konfiguration an (Config im RAM)
+ `show startup-config` | Zeigt die Konfig an, die im NVRAM ist (wird beim booten ausgeführt)
+ `show vlan-switch` | Zeigt welcher Port zu welchem VLAN gehört
+ `show flash` | Zeigt den Inhalt der *Festplatte* an
+ `show version` | Zeigt die Version vom IOS an
+ `show arp` | Zeigt die Zuweisung von MAC Adresse und IP Adresse an
+
 
 ## Physikalischen Console Port absichern
 Hierbei handelt es sich um den Port, wo man sein blaues Cisco Kabel hineinsteckt, um das Gerät zu konfigurieren. 
