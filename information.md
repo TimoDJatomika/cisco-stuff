@@ -6,29 +6,45 @@
  --- | --- | ---
 1|Hostname ändern | enable -> conf t -> hostname *mycool-switch*  
 2|kein DNS Lookup | enable -> conf t -> no ip domain lookup
-3|Inline status Meldungen Deaktivieren| conf t -> line cons 0 -> logging synchronous
+3|Inline status Meldungen deaktivieren| conf t -> line cons 0 -> `logging synchronous`
 4|change position | ändert position
-5|klartext Passwörter ausschalten | en -> conf t -> service password-encryption
+5|klartext Passwörter ausschalten | en -> conf t -> `service password-encryption`
 6|Uhrzeit setzen|en -> conf t -> clock set 19:43:43 5 Apr 2015 # funktioniert nicht
 7|verify clock| en -> show clock
+
 
 ## Wichtige Kommandos
 Kommando | Funktion
  --- | ---
+ `en -> enable secret` | Man benötigt ein Passwort um vom `user` mode in den `enable` mode zu kommen. Das Passwort wird verschlüsselt gespeichert.
  `en -> vlan database` | Konfiguration von VLAN
  `en -> wr` | speichert die aktuelle Konfiguration ab
  `en -> copy running-config startup-config` | macht das gleiche wie `wr` nur in lang
  `en -> reload` | startet das Gerät neu 
  `en -> write erase` | löscht alles im NVRAM
+ `en -> conf t -> banner motd -> # hier message eingeben #` | Message, die beim starten bzw. anmelden am Gerät angezeigt wird.
  
 ### Wichtige *show* Kommandos
-Vorher muss man sich mit in den `en` mode schalten
+Vorher muss man sich mit in den `enable` mode schalten
 Kommando | Funktion
  --- | ---
 `show running-config` | Zeigt die akutelle Konfiguration an (Config im RAM)
 `show startup-config` | Zeigt die Konfig an, die im NVRAM ist (wird beim booten ausgeführt)
+`show vlan-switch` | Zeigt welcher Port zu welchem VLAN gehört
 `show flash` | Zeigt den Inhalt der *Festplatte* an
 `show version` | Zeigt die Version vom IOS an
+`show arp` | Zeigt die Zuweisung von MAC Adresse und IP Adresse an
+
+## Physikalischen Console Port absichern
+Hierbei handelt es sich um den Port, wo man sein blaues Cisco Kabel hineinsteckt, um das Gerät zu konfigurieren. 
+Per default sein dort keine Passworter o.e. gesetzt.
+
+Schritt | Kommando | Funktion
+ --- | --- | ---
+ 1 | `en -> conf t -> line console 0` | wir möchten *Console 0* konfigurieren
+ 2 | `password <supergeheim>` | Es wird ein Passwort gesetzt. Durch  `service password-encryption` wird das Passwort verschlüsselt gespeichert. 
+ 2 | `login` | Es ist zwingend erforderlich, dass man sich mit einem Passwort anmeldet.
+ 3 | `exec-timeout 15 10` | Nach 15 min. und 10 sec. - wenn man nichts macht - wird man ausgeloggt.
  
 #### VLAN auf Layer 2
 
