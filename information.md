@@ -92,11 +92,12 @@ Mit `en -> show ip dhcp binding` wir dagezeigt welcher Cleint zurzeit ein IP Adr
 ### Neuen Pool erstellen
 Schritt | Kommando | Funktion
  --- | --- | ---
- 1 | en -> conft -> `ip dhcp pool <name-von-pool>` | erstellt einen neuen DHCP-Pool 
+ 0 | en -> conf t -> `dhcp excluded-addresses 10.10.10.1 10.10.10.19` | optional: wird sagen, dass diese IP Adressen (von - bis) nicht vom DHCP Server vergeben werden sollen
+ 1 | en -> conf t -> `ip dhcp pool <name-von-pool>` | erstellt einen neuen DHCP-Pool 
  2 | `network 10.10.10.0 /24` | Netzwerkmaske Konfigurieren (wichtig nach der 0 ein Leerzeichen) 
- 3 | `default-router 10.10.10.1` | Gibt an was das default Gateway ist
- 4 | `dns-server 8.8.8.8` | legt den dns server fest
- 5 | `lease 0 2 0` | wie lange ist die Lease Time für die IP Adresse in [day] [hour] [seconds]
+ 3 | `default-router 10.10.10.1` | optional: gibt an was das default Gateway ist
+ 4 | `dns-server 8.8.8.8` | optional: legt den dns server fest
+ 5 | `lease 0 2 0` | optional: wie lange ist die Lease Time für die IP Adresse in [days] [hours] [minutes]
  
  
  ## Domain Name
