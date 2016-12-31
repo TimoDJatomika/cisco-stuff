@@ -23,6 +23,7 @@ Kommando | Funktion
  `en -> reload` | startet das Gerät neu 
  `en -> write erase` | löscht alles im NVRAM
  `en -> conf t -> banner motd -> # hier message eingeben #` | Message, die beim starten bzw. anmelden am Gerät angezeigt wird.
+ `en -> conf t -> interf fa1 -> spanning-tree portfast` | Schaltet spanning-tree für den Port aus. Damit vorsichtig umgehen!
  
 ### Wichtige *show* Kommandos
 Vorher muss man sich mit in den `enable` mode schalten.
