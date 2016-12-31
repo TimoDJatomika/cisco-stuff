@@ -35,8 +35,9 @@ Kommando | Funktion
  `show flash` | Zeigt den Inhalt der *Festplatte* an
  `show version` | Zeigt die Version vom IOS an
  `show arp` | Zeigt die Zuweisung von MAC Adresse und IP Adresse an
-
-
+ `show mac-address-table` | Zeigt alle MAC Adressen und an welchen Port sie sich befinden.
+ `show mac-address-table interface fastEthernet 1` | Zeigt mir an welche MAC Adressen an diesem Port *angeschlossen* sind.
+ 
 ## Physikalischen Console Port absichern
 Hierbei handelt es sich um den Port, wo man sein blaues Cisco Kabel hineinsteckt, um das Gerät zu konfigurieren. 
 Per default sein dort keine Passworter o.e. gesetzt.
