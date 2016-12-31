@@ -51,12 +51,19 @@ Schritt | Kommando | Funktion
  3 | `exec-timeout 15 10` | Nach 15 min. und 10 sec. - wenn man nichts macht - wird man ausgeloggt.
  
 #### VLAN auf Layer 2
+Zuerst in den `enable` Mode schalten
 
+Schritt | Kommando | Funktion 
+ --- | --- | ---
+1 | `vlan database` | Schaltet in VLAN Datenbank (config wird später im flash gespeichert)
+2 | `vlan 10 name <some-name>` | erstellt VLAN 10, wenn es noch nicht existiert
+3 | `exit` | so geht man aus der VLAN Konfig heraus
+4 | `show vlan-switch` | überprüfen, ob das auch alles funktioniert hat
 
-## Infos zu VTP
+#### Infos zu VTP
 - VTP nicht benutzen !
 
-#### Vlan 1 Konfigurieren
+#### Vlan 1 Konfigurieren auf Layer 3
 Schritt | Kommando | Funktion 
  --- | --- | ---
 1 | en -> conf t -> `interface vlan 1` | Wir möchten das VLAN Interface 1 Konfigurieren (auf L3) 
