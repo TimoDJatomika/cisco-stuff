@@ -59,9 +59,12 @@ Schritt | Kommando | Funktion
 2 | `vlan 10 name <some-name>` | erstellt VLAN 10, wenn es noch nicht existiert
 3 | `exit` | so geht man aus der VLAN Konfig heraus
 4 | `show vlan-switch` | überprüfen, ob das auch alles funktioniert hat
+Die VLAN Config wird ein einer extra Datei **vlan.dat** auf dem Flash gespeichert. Möchte man also einen Switch zurück setzen, so muss man diese Datei auch löschen.
 
 #### Infos zu VTP
 - VTP nicht benutzen !
+
+`show vtp status` Zeigt den Status an. VTP ausschalten: `conft -> vtp mode transp`
 
 #### Vlan 1 Konfigurieren auf Layer 3
 Schritt | Kommando | Funktion 
