@@ -16,7 +16,7 @@
 ## Wichtige Kommandos
 Kommando | Funktion
  --- | ---
- `en -> enable secret` | Man benötigt ein Passwort um vom `user` mode in den `enable` mode zu kommen. Das Passwort wird verschlüsselt gespeichert.
+ `en -> conf t -> enable secret <supergeheim>` | Man benötigt ein Passwort um vom `user` mode in den `privilege` mode zu kommen. Das Passwort wird verschlüsselt gespeichert.
  `en -> vlan database` | Konfiguration von VLAN
  `en -> wr` | speichert die aktuelle Konfiguration ab
  `en -> copy running-config startup-config` | macht das gleiche wie `wr` nur in lang
