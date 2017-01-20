@@ -107,8 +107,9 @@ Schritt | Kommando | Funktion
  5 | `lease 0 2 0` | optional: wie lange ist die Lease Time für die IP Adresse in [days] [hours] [minutes]
  
  
- ## Domain Name
- Domain Name ist z.B. für ssh wichtig
+ **Domain Name**
+ 
+ Domain Name ist z.B. für ssh wichtig.
  
  Kommando | Funktion
   --- | ---
