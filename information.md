@@ -99,7 +99,7 @@ Mit `en -> show ip dhcp binding` wir dagezeigt welcher Cleint zurzeit ein IP Adr
 ### Neuen Pool erstellen
 Schritt | Kommando | Funktion
  --- | --- | ---
- 0 | en -> conf t -> `dhcp excluded-addresses 10.10.10.1 10.10.10.19` | optional: wird sagen, dass diese IP Adressen (von - bis) nicht vom DHCP Server vergeben werden sollen
+ 0 | en -> conf t -> `ip dhcp excluded-addresses 10.10.10.1 10.10.10.19` | optional: wird sagen, dass diese IP Adressen (von - bis) nicht vom DHCP Server vergeben werden sollen
  1 | en -> conf t -> `ip dhcp pool <name-von-pool>` | erstellt einen neuen DHCP-Pool 
  2 | `network 10.10.10.0 /24` | Netzwerkmaske Konfigurieren (wichtig nach der 0 ein Leerzeichen) 
  3 | `default-router 10.10.10.1` | optional: gibt an was das default Gateway ist
