@@ -51,7 +51,10 @@ Schritt | Kommando | Funktion
  3 | `exec-timeout 15 10` | Nach 15 min. und 10 sec. - wenn man nichts macht - wird man ausgeloggt.
  
 #### VLAN auf Layer 2
-Zuerst in den `enable` Mode schalten
+Zuerst in den `enable` Mode schalten. 
+Diese Schritte funktionieren nur auf einem alten Cisco Device. Neuere Geräte können das Kommando `show vlan`.
+
+Desweiteren erstellt man bei neueren Geräten ein VLAN, indem man einfach z.B. `vlan 10` eingibt, um das VLAN 10 zu erstellen. 
 
 Schritt | Kommando | Funktion 
  --- | --- | ---
@@ -71,6 +74,7 @@ Schritt | Kommando | Funktion
  --- | --- | ---
 1 | en -> conf t -> `interface vlan 1` | Wir möchten das VLAN Interface 1 Konfigurieren (auf L3) 
 2 | `ip address 10.10.10.1 255.255.255.0` | Gibt dem Interface eine IP Adresse
+3 | `description LALALLA` | Gibt dem VLAN eine Beschreibung 
 
 #### Port einem VLAN hinzufügen
 
