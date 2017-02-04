@@ -26,6 +26,8 @@ Kommando | Funktion
  `en -> write erase` | löscht alles im NVRAM
  `en -> conf t -> banner motd -> # hier message eingeben #` | Message, die beim starten bzw. anmelden am Gerät angezeigt wird.
  `en -> conf t -> interf fa1 -> spanning-tree portfast` | Schaltet spanning-tree für den Port aus. Damit vorsichtig umgehen!
+ `en -> conf t -> ip default-gateway 10.10.10.1` | setzt den Default Gateway für das Gerät
+ `en -> conf t -> ip route 0.0.0.0 0.0.0.0 10.10.10.1` | Setzt eine Default Route für das Gerät
  
 ### Wichtige *show* Kommandos
 Vorher muss man sich mit in den `enable` mode schalten.
