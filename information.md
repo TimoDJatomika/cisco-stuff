@@ -10,9 +10,10 @@
 4|Passwort für den Enable Mode setzen | conf t -> enable secret superpasswort 
 5|banner setzen | en -> conf t -> `banner motd $ her super coole message eingeben $`
 6|klartext Passwörter ausschalten | en -> conf t -> `service password-encryption`
-7|Uhrzeit manuell setzen|en -> conf t -> clock set 19:43:43 5 Apr 2015 (funktioniert nur bei machner Cisco Geräten)
-8|verify clock| en -> show clock
-
+7.1|Uhrzeit manuell setzen|en -> conf t -> clock set 19:43:43 5 Apr 2015 (funktioniert nur bei machner Cisco Geräten)
+7.1.1|verify clock| en -> show clock
+7.2|NTP setzen | en -> conf t -> ntp 0.de.pool.ntp.org prefer
+7.2.1|NTP überprüfen | en -> show ntp status
 
 ## Wichtige Kommandos
 Kommando | Funktion
