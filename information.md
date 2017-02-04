@@ -117,3 +117,17 @@ Schritt | Kommando | Funktion
   en -> `show hosts` | Zeigt u.a den Domain Name an
   en -> `show ip domain-name` | Zeigt nur den Domain Name an
   en -> conf t -> `ip domain-name brainoftimo.com` | vergibt den Domain Name *brainoftimo.com*
+  
+  
+  ### SSH 
+  Da Telnet unverschlüsselt ist, sollte man statt telnet SSH benutzen.
+  
+  Kommando | Funktion
+  --- | ---
+  en -> conf t -> `ip domain-name example.com` | setzt einen Domain Namen
+  `username john password supergeheim` | man muss einen Benutzernamen erstellen, falls nich keiner existiert
+ `crypto key generate rsa` | es wird ein RSA Schlüssel erstellt. Hier ambesten *2048* als Bitlänge wählen
+ `ip ssh version 2` | man möchte ssh version 2 verwenden
+ `line vty 0 5 -> login local` | lokale benutzer können sich mit Benutzername und Passwort am Gerät anmelden
+ `line vty 0 5 -> transport input ssh` | es ist nur erlaubt sich per ssh am Gerät anzumenden. Telnet wird dadurch deaktiviert
+ `show ssh` | Zeigt an wer gerade per ssh am dem Gerät angemeldet ist.
