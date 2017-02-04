@@ -4,13 +4,14 @@
 ## Grundkonfiguration
  Schritt | Funktion |Programmname 
  --- | --- | ---
-1|Hostname ändern | enable -> conf t -> hostname *mycool-switch*  
-2|kein DNS Lookup | enable -> conf t -> no ip domain lookup
+1|Hostname ändern | en -> conf t -> hostname *mycool-switch*  
+2|kein DNS Lookup | en -> conf t -> no ip domain lookup
 3|Inline status Meldungen deaktivieren| conf t -> line cons 0 -> `logging synchronous`
-4|change position | ändert position
-5|klartext Passwörter ausschalten | en -> conf t -> `service password-encryption`
-6|Uhrzeit setzen|en -> conf t -> clock set 19:43:43 5 Apr 2015 # funktioniert nicht
-7|verify clock| en -> show clock
+4|Passwort für den Enable Mode setzen | conf t -> enable secret superpasswort 
+5|banner setzen | en -> conf t -> `banner motd $ her super coole message eingeben $`
+6|klartext Passwörter ausschalten | en -> conf t -> `service password-encryption`
+7|Uhrzeit manuell setzen|en -> conf t -> clock set 19:43:43 5 Apr 2015 (funktioniert nur bei machner Cisco Geräten)
+8|verify clock| en -> show clock
 
 
 ## Wichtige Kommandos
