@@ -139,5 +139,5 @@ Schritt | Kommando | Funktion
 #### Anmelden per Public / Private Key
 Anstatt sich mit einem Passwort anzumelden, kann man sich auch per Public / Private Key anmelden
 
-`ip ssh pubkey-chain -> username *john* ->  key-string <hier key einfügen>` 
+[klick mich](https://nsrc.org/workshops/2016/apricot2016/raw-attachment/wiki/Track5Wireless/cisco-ssh-auth.htm)
 
