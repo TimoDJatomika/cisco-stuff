@@ -66,6 +66,7 @@ Schritt | Kommando | Funktion
 2 | `vlan 10 name <some-name>` | erstellt VLAN 10, wenn es noch nicht existiert
 3 | `exit` | so geht man aus der VLAN Konfig heraus
 4 | `show vlan-switch` | überprüfen, ob das auch alles funktioniert hat
+
 Die VLAN Config wird ein einer extra Datei **vlan.dat** auf dem Flash gespeichert. Möchte man also einen Switch zurück setzen, so muss man diese Datei auch löschen.
 
 #### Infos zu VTP
@@ -110,6 +111,10 @@ Schritt | Kommando | Funktion
  4 | `dns-server 8.8.8.8` | optional: legt den dns server fest
  5 | `lease 0 2 0` | optional: wie lange ist die Lease Time für die IP Adresse in [days] [hours] [minutes]
  
+ ### DHCP Helper Adresse
+`conf t -> int vlan 10 -> ip helper-address 172.17.1.1` 
+
+forward all to this ip address 
  
  **Domain Name**
  
@@ -122,7 +127,7 @@ Schritt | Kommando | Funktion
   en -> conf t -> `ip domain-name brainoftimo.com` | vergibt den Domain Name *brainoftimo.com*
   
   
-### SSH 
+## SSH 
   
   Da Telnet unverschlüsselt ist, sollte man statt telnet SSH benutzen.
   
@@ -141,3 +146,9 @@ Anstatt sich mit einem Passwort anzumelden, kann man sich auch per Public / Priv
 
 [klick mich](https://nsrc.org/workshops/2016/apricot2016/raw-attachment/wiki/Track5Wireless/cisco-ssh-auth.htm)
 
+## PoE - Power over Ethernet
+ Kommando | Funktion
+  --- | ---
+`show power inline` | zeigt status an
+`conf t -> int fa0 -> power inline never` | macht POE aus
+`conf t -> int fa0 -> power inline auto` | Automatically detect and power inline devices
