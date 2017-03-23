@@ -14,10 +14,12 @@ Auf der einen Seite des Routers ist das Interne Netzwerk (IN) und auf der andere
 
 `conf t -> vlan 10 -> ip access-group EACL-VLAN10-IN in`
 
+`conf t -> vlan 10 -> ip access-group EACL-VLAN10-OUT out`
+
 ## Example EACL Regeln
 Die Wildcast Mask müssen immer in umgekährter Reihenfolge geschrieben werden, also 255.255.255.0 => 0.0.0.255
 
-deny ip <from e.g. 10.10.10.0> <wildcard e.g. 0.0.0.255> <destination> <wildcard destination>
+`deny ip <from e.g. 10.10.10.0> <wildcard e.g. 0.0.0.255> <destination> <wildcard destination>`
 
 **Regel an einer bestimmten Reihenfolge setzen**
 10 deny ip ...
