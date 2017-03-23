@@ -12,9 +12,9 @@ Die Normalen Access Controll Listen sind nicht besonders mächtig, daher sollte 
 Es gibt zwei Möglichkeiten Access Listes anzuwenden. Einmal IN und einmal OUT. Um das ganze besser zu verstehen, *muss man der Router sein*.
 Auf der einen Seite des Routers ist das Interne Netzwerk (IN) und auf der anderen Seite ist das andere Netzwerk (OUT)
 
-`conf t -> vlan 10 -> ip access-group EACL-VLAN10-IN in`
+`conf t -> interface vlan 10 -> ip access-group EACL-VLAN10-IN in`
 
-`conf t -> vlan 10 -> ip access-group EACL-VLAN10-OUT out`
+`conf t -> interface vlan 10 -> ip access-group EACL-VLAN10-OUT out`
 
 ## Example EACL Regeln
 Die Wildcast Mask müssen immer in umgekährter Reihenfolge geschrieben werden, also 255.255.255.0 => 0.0.0.255
