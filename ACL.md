@@ -3,7 +3,7 @@
 Die Normalen Access Controll Listen sind nicht besonders mächtig, daher sollte man Exteded Access Controll Listen (EACL) benutzen.
 
 **Alle ACL's anzeigen**
-`show ip access`
+`show ip access-lists`
 
 ## EACL erstellen
 `conf t -> ip access-list extended EACL-VLAN10-IN`
@@ -23,3 +23,10 @@ Die Wildcast Mask müssen immer in umgekährter Reihenfolge geschrieben werden, 
 
 **Regel an einer bestimmten Reihenfolge setzen**
 10 deny ip ...
+
+**Reset Counter**
+`clear access-list counters `
+
+**Erlaube aufgebaute Verbindungen** 
+Regel am OUT anwenden
+`1 permit tcp any any established`
