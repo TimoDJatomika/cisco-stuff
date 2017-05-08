@@ -30,3 +30,8 @@ Die Wildcast Mask müssen immer in umgekährter Reihenfolge geschrieben werden, 
 **Erlaube aufgebaute Verbindungen** 
 Regel am OUT anwenden
 `1 permit tcp any any established`
+
+**resequence ACL**
+`conf t -> ip access-list resequence EACL-VLAN99-OUT 10 10`
+
+Die Extended ACL `EACL-VLAN99-OUT` wird neu sequenziert. Dabei wird mit *10* angefangen und in *10*er Schritten hochgezählt 
