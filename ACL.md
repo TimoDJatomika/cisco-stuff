@@ -1,4 +1,4 @@
-# Cisco's Access Controll Lists
+# Cisco's Access Control Lists
 
 Die Normalen Access Controll Listen sind nicht besonders mächtig, daher sollte man Exteded Access Controll Listen (EACL) benutzen.
 
