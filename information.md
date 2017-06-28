@@ -153,3 +153,11 @@ Anstatt sich mit einem Passwort anzumelden, kann man sich auch per Public / Priv
 `show power inline` | zeigt status an
 `conf t -> int fa0 -> power inline never` | macht POE aus
 `conf t -> int fa0 -> power inline auto` | Automatically detect and power inline devices
+
+## SNMP - Simple Network Management Protocol
+Um mit einer Monitoring Software den Switch überwachen zu können wird in der Regel das SNMP eingesetzt. Um SNMP v2 auf einem Gerät zu aktivieren muss man folgendes eingeben: 
+
+`conf t -> snmp-server community geheim RO`
+
+Der Community String lautet hier *geheim*. Diesen muss man natürlich entsprächend ändern. Das *RO* am Ende sagt, dass die Monitoring Sortware nur lesend auf den Switch zugreifen darf, also kein Änderungen am Gerät selbst vornehmen darf. 
+
