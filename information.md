@@ -161,3 +161,8 @@ Um mit einer Monitoring Software den Switch überwachen zu können wird in der R
 
 Der Community String lautet hier *geheim*. Diesen muss man natürlich entsprächend ändern. Das *RO* am Ende sagt, dass die Monitoring Sortware nur lesend auf den Switch zugreifen darf, also kein Änderungen am Gerät selbst vornehmen darf. 
 
+## Syslog auf zentralen Server
+Hier geht es darum Meldungen (Syslogs) dass das Gerät erzeugt an einen Zentralen Server zu senden. Dieser Server kann dann z.B. die empfangenen logs auswerten und z.B. Alerts an den Admin senden. 
+
+Dazu folgenden Befehlt im Gerät eingeben:
+`conf t -> logging host <ip-vom-syslog-server>`
