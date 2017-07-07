@@ -167,3 +167,20 @@ Hier geht es darum Meldungen (Syslogs) dass das Gerät erzeugt an einen Zentrale
 
 Dazu folgenden Befehlt im Gerät eingeben:
 `conf t -> logging host <ip-vom-syslog-server>`
+
+## Error Disabled Ports -> Recorvery
+Wenn ein Port in den Status `error-disabled` geht muss ein Administrator diesen Port manuell per `shutdown` und `no shutdown` wieder "einschalten". 
+
+Es gibt aber auch die Möglichkeit einen `error-disabled` Port automatisch wierder "einzuschalten", indem man folgende Befehle Benutzt:
+
+```
+conf t
+! psecure-violation ist hier nur ein Beispiel. Es gibt viele Sachen, die einen Port in error-disabled bringen können
+errdisable recovery cause psecure-violation
+! revovery interval in Sekunden, also 5 min hier
+errdisable recovery interval  300
+
+! anzeigen was alles error recovery ist
+show errdisable recovery
+```
+
