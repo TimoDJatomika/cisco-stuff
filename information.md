@@ -42,7 +42,8 @@ Kommando | Funktion
  `show arp` | Zeigt die Zuweisung von MAC Adresse und IP Adresse an
  `show mac-address-table` | Zeigt alle MAC Adressen und an welchen Port sie sich befinden.
  `show mac-address-table interface fastEthernet 1` | Zeigt mir an welche MAC Adressen an diesem Port *angeschlossen* sind.
- `show interfaces status err-disabled` | Zeigt Error Disables Ports an
+ `show interfaces status` | Zeigt den Status der Interfaces an (auch error-disabled Ports)
+ `show interfaces status err-disabled` | Zeigt error-disabled Ports an
  
 ## Physikalischen Console Port absichern
 Hierbei handelt es sich um den Port, wo man sein blaues Cisco Kabel hineinsteckt, um das Gerät zu konfigurieren. 
