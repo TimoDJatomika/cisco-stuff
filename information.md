@@ -184,3 +184,18 @@ errdisable recovery interval  300
 show errdisable recovery
 ```
 
+## DHCP Snooping
+DHCP Snooping eliminiert "roge" DHCP-Server, also DHCP-Server die nicht ins Netzwerk gehören und somit einen Angriff auf das Netzwerk darstellen. 
+
+1. DHCP Snoopoing auf dem Switch aktivieren: `conf t -> ip dhcp snooping`
+2. Die Ports als *trusted* makieren, welche DHCP Anfragen beantworten dürfen. 
+   Also den Port an dem der DHCP Server angeschlossen ist. 
+   Außerdem muss man noch Trunk Ports, die z.B. an einem Anderen Switch verbinden sind als *truested* makieren. 
+   `conf t -> int Gi1/0/12 ->  ip dhcp snooping trust` 
+3. DHCP Snooping für ein VLAN aktivieren: `conf t -> ip dhcp snooping vlan 10`
+
+Wenn das Feature aktiviert ist, guckt sich der Switch automaitsch alle DHCP Requests and Responese an.
+Diese Tabelle kann man sich mit `show ip dhcp snooping binding` angucken.
+
+Wenn DHCP Antworten von einem untrusted Port kommen, dann geht dieser Port in den Status: *Error Disabled*
+
