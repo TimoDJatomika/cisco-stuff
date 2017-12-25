@@ -7,8 +7,9 @@
 
 ## Grundkonfiguration
 Alle Kommandos wurden im *privilegierten Modus* ausgeführt. Vor jedem Kommando wurde `enable` eingegeben.
- Funktion |Programmname 
- --- | --- | ---
+
+ Funktion | Kommando 
+ --- | --- 
 Hostname ändern | `conf t -> hostname *my-cool-switch*`  
 kein DNS Lookup | `conf t -> no ip domain lookup`
 Inline status Meldungen deaktivieren (via Consol-Kabel) | `conf t -> line cons 0 -> logging synchronous`
@@ -18,8 +19,8 @@ Passwort für den Enable Mode setzen (Passwort wird verschlüsselt gespeichert) 
 Banner setzen | `conf t -> banner motd $ her super coole message eingeben $`
 
 ### Uhrzeit
- Funktion |Programmname 
- --- | --- | ---
+ Funktion |Kommando 
+ --- | --- 
 Uhrzeit anzeigen| `show clock`
 NTP Server setzen (nur wenn DNS funktioniert) | `conf t -> ntp 0.de.pool.ntp.org prefer` 
 NTP Status überprüfen | `show ntp status`
