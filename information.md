@@ -1,33 +1,42 @@
 # Cisco Switch - Basic Infos
 
+## Die drei Modis
+1. **enable Modus / user Mode**: Standard Modus - hier kann man nur basis Konfigurationen vonehmen.
+2. **privilegierten Modus**: Hier kann man schon mehr. Z.B. `show ip int br` .
+3. **config Modus**: In diesem Modus kann man Einstellungen am Gerät vornehmen.
 
 ## Grundkonfiguration
- Schritt | Funktion |Programmname 
+Alle Kommandos wurden im *privilegierten Modus* ausgeführt. Vor jedem Kommando wurde `enable` eingegeben.
+ Funktion |Programmname 
  --- | --- | ---
-1|Hostname ändern | en -> conf t -> hostname *mycool-switch*  
-2|kein DNS Lookup | en -> conf t -> no ip domain lookup
-3|Inline status Meldungen deaktivieren| conf t -> line cons 0 -> `logging synchronous`
-4|Passwort für den Enable Mode setzen | conf t -> enable secret superpasswort 
-5|banner setzen | en -> conf t -> `banner motd $ her super coole message eingeben $`
-6|klartext Passwörter ausschalten | en -> conf t -> `service password-encryption`
-7.1|Uhrzeit manuell setzen|en -> conf t -> clock set 19:43:43 5 Apr 2015 (funktioniert nur bei machner Cisco Geräten)
-7.1.1|verify clock| en -> show clock
-7.2|NTP setzen | en -> conf t -> ntp 0.de.pool.ntp.org prefer
-7.2.1|NTP überprüfen | en -> show ntp status
+Hostname ändern | `conf t -> hostname *my-cool-switch*`  
+kein DNS Lookup | `conf t -> no ip domain lookup`
+Inline status Meldungen deaktivieren (via Consol-Kabel) | `conf t -> line cons 0 -> logging synchronous`
+Inline Meldungen via SSH/Telnet anzeigen (nur Temporär) | `terminal monitor`
+klartext Passwörter ausschalten | `conf t -> service password-encryption`
+Passwort für den Enable Mode setzen (Passwort wird verschlüsselt gespeichert) | `conf t -> enable secret k7zK23-dE` 
+Banner setzen | `conf t -> banner motd $ her super coole message eingeben $`
+
+### Uhrzeit
+ Funktion |Programmname 
+ --- | --- | ---
+Uhrzeit anzeigen| `show clock`
+NTP Server setzen (nur wenn DNS funktioniert) | `conf t -> ntp 0.de.pool.ntp.org prefer` 
+NTP Status überprüfen | `show ntp status`
 
 ## Wichtige Kommandos
+Alle Kommandos wurden im *privilegierten Modus* ausgeführt. Vor jedem Kommando wurde `enable` eingegeben.
+
 Kommando | Funktion
  --- | ---
- `en -> conf t -> enable secret <supergeheim>` | Man benötigt ein Passwort um vom `user` mode in den `privilege` mode zu kommen. Das Passwort wird verschlüsselt gespeichert.
- `en -> vlan database` | Konfiguration von VLAN
- `en -> wr` | speichert die aktuelle Konfiguration ab
- `en -> copy running-config startup-config` | macht das gleiche wie `wr` nur in lang
- `en -> reload` | startet das Gerät neu 
- `en -> write erase` | löscht alles im NVRAM
- `en -> conf t -> banner motd -> # hier message eingeben #` | Message, die beim starten bzw. anmelden am Gerät angezeigt wird.
- `en -> conf t -> interf fa1 -> spanning-tree portfast` | Schaltet spanning-tree für den Port aus. Damit vorsichtig umgehen!
- `en -> conf t -> ip default-gateway 10.10.10.1` | setzt den Default Gateway für das Gerät
- `en -> conf t -> ip route 0.0.0.0 0.0.0.0 10.10.10.1` | Setzt eine Default Route für das Gerät
+ `wr` | speichert die aktuelle Konfiguration ab (geht **nur** im *privilegierten Modus*)
+ `copy running-config startup-config` | macht das gleiche wie `wr` nur in lang
+ `reload` | startet das Gerät neu (FYI: Es gibt keinen *shutdown* o.e. Befehl)
+ `write erase` | löscht alles im NVRAM
+ `conf t -> interf fa1 -> spanning-tree portfast` | Schaltet spanning-tree für den Port aus. Damit vorsichtig umgehen!
+ `conf t -> ip default-gateway 10.10.10.1` | setzt den Default Gateway für das Gerät
+ `conf t -> ip route 0.0.0.0 0.0.0.0 10.10.10.1` | Setzt eine Default Route für das Gerät
+
  
 ### Wichtige *show* Kommandos
 Vorher muss man sich mit in den `enable` mode schalten.
@@ -36,7 +45,7 @@ Kommando | Funktion
  --- | ---
  `show running-config` | Zeigt die akutelle Konfiguration an (Config im RAM)
  `show startup-config` | Zeigt die Konfig an, die im NVRAM ist (wird beim booten ausgeführt)
- `show vlan-switch` | Zeigt welcher Port zu welchem VLAN gehört
+ `show vlan-switch` | Zeigt welcher Port zu welchem VLAN gehört (nur bei älteren Geräten und Routern)
  `show flash` | Zeigt den Inhalt der *Festplatte* an
  `show version` | Zeigt die Version vom IOS an
  `show arp` | Zeigt die Zuweisung von MAC Adresse und IP Adresse an
@@ -44,6 +53,7 @@ Kommando | Funktion
  `show mac-address-table interface fastEthernet 1` | Zeigt mir an welche MAC Adressen an diesem Port *angeschlossen* sind.
  `show interfaces status` | Zeigt den Status der Interfaces an (auch error-disabled Ports)
  `show interfaces status err-disabled` | Zeigt error-disabled Ports an
+ `show vlan database` | Konfiguration von VLAN (nur bei älteren Geräten)
  
 ## Physikalischen Console Port absichern
 Hierbei handelt es sich um den Port, wo man sein blaues Cisco Kabel hineinsteckt, um das Gerät zu konfigurieren. 
@@ -53,8 +63,8 @@ Schritt | Kommando | Funktion
  --- | --- | ---
  1 | `en -> conf t -> line console 0` | wir möchten *Console 0* konfigurieren
  2 | `password <supergeheim>` | Es wird ein Passwort gesetzt. Durch  `service password-encryption` wird das Passwort verschlüsselt gespeichert. 
- 2 | `login` | Es ist zwingend erforderlich, dass man sich mit einem Passwort anmeldet.
- 3 | `exec-timeout 15 10` | Nach 15 min. und 10 sec. - wenn man nichts macht - wird man ausgeloggt.
+ 3 | `login` | Es ist zwingend erforderlich, dass man sich mit einem Passwort anmeldet.
+ 4 | `exec-timeout 15 10` | Nach 15 min. und 10 sec. - wenn man nichts macht - wird man ausgeloggt.
  
 #### VLAN auf Layer 2
 Zuerst in den `enable` Mode schalten. 
@@ -79,7 +89,7 @@ Die VLAN Config wird ein einer extra Datei **vlan.dat** auf dem Flash gespeicher
 #### Vlan 1 Konfigurieren auf Layer 3
 Schritt | Kommando | Funktion 
  --- | --- | ---
-1 | en -> conf t -> `interface vlan 1` | Wir möchten das VLAN Interface 1 Konfigurieren (auf L3) 
+1 | `en -> conf t -> interface vlan 1` | Wir möchten das VLAN Interface 1 Konfigurieren (auf L3) 
 2 | `ip address 10.10.10.1 255.255.255.0` | Gibt dem Interface eine IP Adresse
 3 | `description LALALLA` | Gibt dem VLAN eine Beschreibung 
 
@@ -87,21 +97,19 @@ Schritt | Kommando | Funktion
 
 Funktion |Programmname 
 --- | ---
-welche Ports sind in welchen VLAN | show vlan-switch 
-Port in ein anderes VLAN Packen | en -> conf t -> int faXX -> switchport mode access -> switchport access vlan 20
+Port in ein anderes VLAN Packen | `conf t -> int faXX -> switchport mode access -> switchport access vlan 20`
 
 ##### Trunk bzw. trunk port erstellen
 Schritt | Funktion |Programmname 
 --- | --- | ---
-1| Port zum Trunk machen | en -> conf t -> int faXX -> switchport mode trunk
-2| Native VLAN auswählen (default ist VLAN 1) | en -> conf t -> int faXX -> switchport trunk native vlan 99
-3| Welche VLAN's gehören zum Trunk | en -> conf t -> int faXX -> switchport trunk allowed vlan 20,30,40
-4| noch ein Port zum Trunk hinzufügen | en -> conf t -> int faXX -> switchport trunk allowed vlan add 500
+1| Port zum Trunk machen | `conf t -> int faXX -> switchport mode trunk`
+2| Native VLAN auswählen (default ist VLAN 1) | `conf t -> int faXX -> switchport trunk native vlan 99`
+3| Welche VLAN's gehören zum Trunk | `conf t -> int faXX -> switchport trunk allowed vlan 20,30,40`
+4| noch ein Port zum Trunk hinzufügen | `conf t -> int faXX -> switchport trunk allowed vlan add 500`
 
 ## DHCP
-Mit `en -> show ip  dhcp pool` kann man sich die einzelnen Pools anzeigen lassen
-
-Mit `en -> show ip dhcp binding` wir dagezeigt welcher Cleint zurzeit ein IP Adresse vom Pool hat. 
+- mit `en -> show ip  dhcp pool` kann man sich die einzelnen Pools anzeigen lassen
+- mit `en -> show ip dhcp binding` wir angezeigt welcher Cleint zurzeit ein IP Adresse vom Pool hat. 
 
 ### Neuen Pool erstellen
 Schritt | Kommando | Funktion
@@ -114,9 +122,7 @@ Schritt | Kommando | Funktion
  5 | `lease 0 2 0` | optional: wie lange ist die Lease Time für die IP Adresse in [days] [hours] [minutes]
  
  ### DHCP Helper Adresse
-`conf t -> int vlan 10 -> ip helper-address 172.17.1.1` 
-
-forward all to this ip address 
+`conf t -> int vlan 10 -> ip helper-address 172.17.1.1` forward all to this ip address 
  
  **Domain Name**
  
@@ -124,9 +130,9 @@ forward all to this ip address
  
  Kommando | Funktion
   --- | ---
-  en -> `show hosts` | Zeigt u.a den Domain Name an
-  en -> `show ip domain-name` | Zeigt nur den Domain Name an
-  en -> conf t -> `ip domain-name brainoftimo.com` | vergibt den Domain Name *brainoftimo.com*
+  en -> `show hosts` | zeigt u.a. den Domain Name an
+  en -> `show ip domain-name` | zeigt nur den Domain Name an
+  en -> `conf t -> ip domain-name brainoftimo.com` | vergibt den Domain Name *brainoftimo.com*
   
   
 ## SSH 
