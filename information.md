@@ -18,12 +18,14 @@ klartext Passwörter ausschalten | `conf t -> service password-encryption`
 Passwort für den Enable Mode setzen (Passwort wird verschlüsselt gespeichert) | `conf t -> enable secret k7zK23-dE` 
 Banner setzen | `conf t -> banner motd $ her super coole message eingeben $`
 
-### Uhrzeit
- Funktion |Kommando 
- --- | --- 
-Uhrzeit anzeigen| `show clock`
-NTP Server setzen (nur wenn DNS funktioniert) | `conf t -> ntp 0.de.pool.ntp.org prefer` 
-NTP Status überprüfen | `show ntp status`
+### Uhrzeit / Datum
+Kommando | Funktion 
+--- | --- 
+`show clock` | Uhrzeit anzeigen
+`conf t -> ntp 0.de.pool.ntp.org prefer` | NTP Server setzen (nur wenn DNS funktioniert)
+`show ntp status` | NTP Status überprüfen 
+`conf t -> clock timezone UTC 0 ` | setzt die Zeitzone auf UTC (auch wenn wir in Deutsch UTC +1 bzw. +2 haben) 
+
 
 ## Wichtige Kommandos
 Alle Kommandos wurden im *privilegierten Modus* ausgeführt. Vor jedem Kommando wurde `enable` eingegeben.
