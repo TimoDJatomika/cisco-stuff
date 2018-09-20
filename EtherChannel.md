@@ -34,3 +34,13 @@ switchport mode trunk
 switchmode trunk native vlan 99
 channel-group 1 mode passiv ! um eine Etherchannel Gruppe zu erstellen mit LACP
 no shutdown
+```
+
+### ip dhcp snooping
+Benutzt man DHCP Snooping in seinem Netzwerk, so muss man auf jedem Port, welcher Etherchannel benutzt folgendes Kommando eingeben: 
+
+```
+ip dhcp snooping trust
+```
+
+natürlich nur, wenn das gewünscht ist. 
