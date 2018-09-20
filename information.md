@@ -208,3 +208,11 @@ Diese Tabelle kann man sich mit `show ip dhcp snooping binding` angucken.
 
 Wenn DHCP Antworten von einem untrusted Port kommen, dann geht dieser Port in den Status: *Error Disabled*
 
+## Backup der Konfiguration
+Die Konfiguration eines Cisco Gerätes sollte regelmäßig *woanders* gespeichert werden.
+
+Mit diesem Kommando wird die aktuelle Konfiguration eines Switches via SCP (also verschlüsselt) auf einem Laptop mit der IP Adresse 10.10.94.2 gespeichert. 
+
+```
+copy running-config scp://10.10.94.2/config-cisco-device.txt
+```
