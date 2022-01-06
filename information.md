@@ -92,9 +92,18 @@ Die VLAN Config wird ein einer extra Datei **vlan.dat** auf dem Flash gespeicher
 #### Vlan 1 Konfigurieren auf Layer 3
 Schritt | Kommando | Funktion 
  --- | --- | ---
-1 | `en -> conf t -> interface vlan 1` | Wir möchten das VLAN Interface 1 Konfigurieren (auf L3) 
+1 | `en -> conf t -> interface vlan 1` | Wir möchten das VLAN Interface 1 Konfigurieren (auf Layer 3 Basis) 
 2 | `ip address 10.10.10.1 255.255.255.0` | Gibt dem Interface eine IP Adresse
-3 | `description LALALLA` | Gibt dem VLAN eine Beschreibung 
+3 | `description MGMT-SWITCH-IP` | Gibt dem VLAN eine Beschreibung 
+
+Zusätzlich kann man IPv6 aktivieren
+
+Schritt | Kommando | Funktion 
+ --- | --- | ---
+1 | `en -> conf t -> interface vlan 1` | Wir möchten das VLAN Interface 1 Konfigurieren (auf Layer 3 Basis) 
+2 | `ipv6 address autoconfig default` | Gibt dem Interface eine IPv6 Adresse (via SLAAC & EUI-64 )
+3 | `ipv6 enable` | Hiermit wird IPv6 aktiviert
+
 
 #### Port einem VLAN hinzufügen
 
