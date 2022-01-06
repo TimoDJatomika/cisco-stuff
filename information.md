@@ -101,7 +101,7 @@ Zusätzlich kann man IPv6 aktivieren
 Schritt | Kommando | Funktion 
  --- | --- | ---
 1 | `en -> conf t -> interface vlan 1` | Wir möchten das VLAN Interface 1 Konfigurieren (auf Layer 3 Basis) 
-2 | `ipv6 address autoconfig default` | Gibt dem Interface eine IPv6 Adresse (via SLAAC & EUI-64 )
+2 | `ipv6 address autoconfig default` | Gibt dem Interface eine IPv6 Adresse (via SLAAC & EUI-64) uns setzt die Defaut-Route
 3 | `ipv6 enable` | Hiermit wird IPv6 aktiviert
 
 
